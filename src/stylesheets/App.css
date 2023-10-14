@@ -1,0 +1,158 @@
+#main-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  align-content: center;
+}
+
+h2 {
+  margin: 0;
+}
+
+#info-container {
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+  height: 100vh;
+  margin-right: 8px;
+}
+
+#info-container h {
+  text-align: center;
+}
+
+.form-header h2 {
+  font-size: 2rem;
+}
+
+#resume {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: center;
+  width: calc(calc(8 / 11.5) * 100vh);
+  height: 100vh;
+  background-color: white;
+  margin-right: auto;
+  margin-left: auto;
+  filter: drop-shadow(0 0 1rem black);
+}
+
+.resume-contact > div > h1 {
+  font-size: 2.25rem;
+}
+
+.resume-experience > h1,
+.resume-education > h1 {
+  font-size: 1.5rem;
+}
+
+#resume-experience > div {
+  margin: 12px;
+}
+
+#resume h1,
+#resume h2,
+#resume p {
+  margin: 2px;
+}
+
+.resume-experience {
+  border-bottom: 1px dashed black;
+  height: 55%;
+}
+
+.resume-experience,
+.resume-education {
+  margin: 12px 24px;
+  background-color: white;
+  color: black;
+}
+
+.resume-contact > div > h2,
+.resume-experience > div > h2,
+.resume-education > div > h2 {
+  font-size: 1rem;
+}
+
+.resume-experience > p,
+.resume-education > p {
+  font-size: 0.8rem;
+}
+
+.info-form {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.resume-contact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 12px;
+  background-color: rgb(1, 1, 54);
+  color: white;
+  height: 18%;
+}
+
+.experience-info,
+.education-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.experience-description {
+  text-align: left;
+}
+
+#prof-image {
+  width: 180px;
+}
+
+.chevron-img {
+  width: 50px;
+}
+
+.form-header {
+  padding: 24px;
+  display: flex;
+}
+
+.form-header:hover {
+  background-color: rgb(50, 50, 50);
+}
+
+button,
+.form-header,
+input[type="checkbox"],
+input[type="color"] {
+  cursor: pointer;
+}
+
+input[type="checkbox"] {
+  width: 25px;
+}
+
+#contact-form,
+#experience-form,
+#education-form,
+#design-form {
+  display: none;
+  flex-direction: column;
+}
+
+#color-selector-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form-section {
+  border-bottom: 0.5px solid white;
+}
+
+.info-form {
+}
