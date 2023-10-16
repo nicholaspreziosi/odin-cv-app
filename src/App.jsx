@@ -34,6 +34,7 @@ function App() {
     headerFont: "",
     mainBg: "",
     mainFont: "",
+    resumeFontFamily: "Helvetica",
   });
 
   return (

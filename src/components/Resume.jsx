@@ -4,7 +4,14 @@ import "../stylesheets/App.css";
 function Resume({ contactData, experienceData, educationData, designData }) {
   return (
     <Fragment>
-      <div id="resume">
+      <div
+        id="resume"
+        style={{
+          fontFamily: designData.resumeFontFamily,
+          background: designData.mainBg,
+          color: designData.mainFont,
+        }}
+      >
         <div
           className="resume-contact"
           style={{
@@ -32,6 +39,7 @@ function Resume({ contactData, experienceData, educationData, designData }) {
           style={{
             background: designData.mainBg,
             color: designData.mainFont,
+            borderBottom: `1px dashed ${designData.mainFont}`,
           }}
         >
           <h1>

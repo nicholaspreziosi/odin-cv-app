@@ -17,6 +17,8 @@ function DesignForm({ designData, setDesignData }) {
       : (designChevron.src = "../public/chevron-up.svg");
   }
 
+  function handleFontChange() {}
+
   return (
     <div className="form-section">
       <div onClick={toggleDropdown} className="form-header">
@@ -29,6 +31,24 @@ function DesignForm({ designData, setDesignData }) {
         />
       </div>
       <div id="design-form" className="info-form">
+        <div id="font-container">
+          <label htmlFor="select-font">Select Font: </label>
+          <select
+            onChange={(e) =>
+              setDesignData({
+                ...designData,
+                resumeFontFamily: e.target.value,
+              })
+            }
+            name="font"
+            id="select-font"
+          >
+            <option value="Helvetica">Helvetica</option>
+            <option value="Times New Roman">Times New Roman</option>
+            <option value="Calibri">Calibri</option>
+            <option value="Arial">Arial</option>
+          </select>
+        </div>
         <div id="color-selector-container">
           <div>
             <label htmlFor="">Header Background Color: </label>

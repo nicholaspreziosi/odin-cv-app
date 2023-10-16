@@ -16,6 +16,31 @@ function ExperienceForm({ experienceData, setExperienceData }) {
       : (experienceChevron.src = "../public/chevron-up.svg");
   }
 
+  function handleSubmit() {
+    const experienceTitle = document.querySelector(
+      "#info-experience-title"
+    ).value;
+    const experienceCompany = document.querySelector(
+      "#info-experience-company"
+    ).value;
+    const experienceLocation = document.querySelector(
+      "#info-experience-location"
+    ).value;
+    const experienceDates = document.querySelector(
+      "#info-experience-dates"
+    ).value;
+    const experienceDescription = document.querySelector(
+      "#info-experience-description"
+    ).value;
+    setExperienceData({
+      title: experienceTitle,
+      company: experienceCompany,
+      location: experienceLocation,
+      dates: experienceDates,
+      description: experienceDescription,
+    });
+  }
+
   return (
     <div className="form-section">
       <div onClick={toggleDropdown} className="form-header">
@@ -28,65 +53,27 @@ function ExperienceForm({ experienceData, setExperienceData }) {
         />
       </div>
       <form id="experience-form" className="info-form" action="">
-        <label htmlFor="">Title:</label>
+        <label htmlFor="info-experience-title">Title:</label>
+        <input id="info-experience-title" type="text" placeholder="Title" />
+        <label htmlFor="info-experience-company">Company:</label>
+        <input id="info-experience-company" type="text" placeholder="Company" />
+        <label htmlFor="info-experience-location">Location:</label>
         <input
-          onChange={(e) =>
-            setExperienceData({
-              ...experienceData,
-              title: e.target.value,
-            })
-          }
-          type="text"
-          placeholder="Title"
-        />
-        <label htmlFor="">Company:</label>
-        <input
-          onChange={(e) =>
-            setExperienceData({
-              ...experienceData,
-              company: e.target.value,
-            })
-          }
-          type="text"
-          placeholder="Company"
-        />
-        <label htmlFor="">Location:</label>
-        <input
-          onChange={(e) =>
-            setExperienceData({
-              ...experienceData,
-              location: e.target.value,
-            })
-          }
+          id="info-experience-location"
           type="text"
           placeholder="Location"
         />
-        <label htmlFor="">Dates:</label>
-        <input
-          onChange={(e) =>
-            setExperienceData({
-              ...experienceData,
-              dates: e.target.value,
-            })
-          }
-          type="text"
-          placeholder="Dates"
-        />
-        <label htmlFor="">Description:</label>
+        <label htmlFor="info-experience-dates">Dates:</label>
+        <input id="info-experience-dates" type="text" placeholder="Dates" />
+        <label htmlFor="info-experience-description">Description:</label>
         <textarea
-          onChange={(e) =>
-            setExperienceData({
-              ...experienceData,
-              description: e.target.value,
-            })
-          }
           name=""
-          id=""
+          id="info-experience-description"
           cols="30"
           rows="10"
         ></textarea>
-        <button type="submit">Add Info</button>
       </form>
+      <button onClick={handleSubmit}>Add Info</button>
     </div>
   );
 }

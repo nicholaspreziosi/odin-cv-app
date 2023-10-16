@@ -17,6 +17,21 @@ function ContactForm({ contactData, setContactData }) {
       : (contactChevron.src = "../public/chevron-up.svg");
   }
 
+  function handleSubmit() {
+    const contactName = document.querySelector("#info-contact-name").value;
+    const contactEmail = document.querySelector("#info-contact-email").value;
+    const contactPhone = document.querySelector("#info-contact-phone").value;
+    const contactWebsite = document.querySelector(
+      "#info-contact-website"
+    ).value;
+    setContactData({
+      name: contactName,
+      email: contactEmail,
+      phone: contactPhone,
+      website: contactWebsite,
+    });
+  }
+
   return (
     <div className="form-section">
       <div onClick={toggleDropdown} className="form-header">
@@ -29,56 +44,16 @@ function ContactForm({ contactData, setContactData }) {
         />
       </div>
       <form id="contact-form" className="info-form">
-        <label htmlFor="name">Name:</label>
-        <input
-          onChange={(e) =>
-            setContactData({
-              ...contactData,
-              name: e.target.value,
-            })
-          }
-          id="name"
-          type="text"
-          placeholder="Name"
-        />
-        <label htmlFor="email">Email Address:</label>
-        <input
-          onChange={(e) =>
-            setContactData({
-              ...contactData,
-              email: e.target.value,
-            })
-          }
-          id="email"
-          type="text"
-          placeholder="Email"
-        />
-        <label htmlFor="phone">Phone Number:</label>
-        <input
-          onChange={(e) =>
-            setContactData({
-              ...contactData,
-              phone: e.target.value,
-            })
-          }
-          id="phone"
-          type="tel"
-          placeholder="Phone Number"
-        />
-        <label htmlFor="website">Website:</label>
-        <input
-          onChange={(e) =>
-            setContactData({
-              ...contactData,
-              website: e.target.value,
-            })
-          }
-          id="website"
-          type="text"
-          placeholder="Website"
-        />
-        <button type="submit">Add Info</button>
+        <label htmlFor="info-contact-name">Name:</label>
+        <input id="info-contact-name" type="text" placeholder="Name" />
+        <label htmlFor="info-contact-email">Email Address:</label>
+        <input id="info-contact-email" type="text" placeholder="Email" />
+        <label htmlFor="info-contact-phone">Phone Number:</label>
+        <input id="info-contact-phone" type="tel" placeholder="Phone Number" />
+        <label htmlFor="info-contact-website">Website:</label>
+        <input id="info-contact-website" type="text" placeholder="Website" />
       </form>
+      <button onClick={handleSubmit}>Add Info</button>
     </div>
   );
 }

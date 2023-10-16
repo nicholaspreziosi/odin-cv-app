@@ -16,6 +16,27 @@ function EducationForm({ educationData, setEducationData }) {
       : (educationChevron.src = "../public/chevron-up.svg");
   }
 
+  function handleSubmit() {
+    const educationSchool = document.querySelector(
+      "#info-education-school"
+    ).value;
+    const educationLocation = document.querySelector(
+      "#info-education-location"
+    ).value;
+    const educationDates = document.querySelector(
+      "#info-education-dates"
+    ).value;
+    const educationMajor = document.querySelector(
+      "#info-education-major"
+    ).value;
+    setEducationData({
+      school: educationSchool,
+      location: educationLocation,
+      dates: educationDates,
+      major: educationMajor,
+    });
+  }
+
   return (
     <div className="form-section">
       <div>
@@ -30,52 +51,20 @@ function EducationForm({ educationData, setEducationData }) {
         </div>
       </div>
       <form id="education-form" className="info-form" action="">
-        <label htmlFor="">School:</label>
+        <label htmlFor="info-education-school">School:</label>
+        <input id="info-education-school" type="text" placeholder="School" />
+        <label htmlFor="info-education-location">Location:</label>
         <input
-          onChange={(e) =>
-            setEducationData({
-              ...educationData,
-              school: e.target.value,
-            })
-          }
-          type="text"
-          placeholder="School"
-        />
-        <label htmlFor="">Location:</label>
-        <input
-          onChange={(e) =>
-            setEducationData({
-              ...educationData,
-              location: e.target.value,
-            })
-          }
+          id="info-education-location"
           type="text"
           placeholder="Location"
         />
-        <label htmlFor="">Dates:</label>
-        <input
-          onChange={(e) =>
-            setEducationData({
-              ...educationData,
-              dates: e.target.value,
-            })
-          }
-          type="text"
-          placeholder="Dates"
-        />
-        <label htmlFor="">Major:</label>
-        <input
-          onChange={(e) =>
-            setEducationData({
-              ...educationData,
-              major: e.target.value,
-            })
-          }
-          type="text"
-          placeholder="Major"
-        />
-        <button type="submit">Add Info</button>
+        <label htmlFor="info-education-dates">Dates:</label>
+        <input id="info-education-dates" type="text" placeholder="Dates" />
+        <label htmlFor="info-education-major">Major:</label>
+        <input id="info-education-major" type="text" placeholder="Major" />
       </form>
+      <button onClick={handleSubmit}>Add Info</button>
     </div>
   );
 }
