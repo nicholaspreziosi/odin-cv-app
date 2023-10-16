@@ -1,6 +1,8 @@
 import { useState } from "react";
 import "../stylesheets/App.css";
 
+let nextId = 0;
+
 function ExperienceForm({ experienceData, setExperienceData }) {
   const [dropDown, setDropdown] = useState(false);
 
@@ -32,13 +34,17 @@ function ExperienceForm({ experienceData, setExperienceData }) {
     const experienceDescription = document.querySelector(
       "#info-experience-description"
     ).value;
-    setExperienceData({
-      title: experienceTitle,
-      company: experienceCompany,
-      location: experienceLocation,
-      dates: experienceDates,
-      description: experienceDescription,
-    });
+    setExperienceData([
+      ...experienceData,
+      {
+        id: nextId++,
+        title: experienceTitle,
+        company: experienceCompany,
+        location: experienceLocation,
+        dates: experienceDates,
+        description: experienceDescription,
+      },
+    ]);
   }
 
   return (
@@ -74,6 +80,23 @@ function ExperienceForm({ experienceData, setExperienceData }) {
         ></textarea>
       </form>
       <button onClick={handleSubmit}>Add Info</button>
+      {experienceData.map((experience) => (
+        <>
+          <div className="info-item-display" key={experience.id}>
+            <p>{experience.title}</p>
+            <button
+              className="info-item-display-delete"
+              onClick={() => {
+                setExperienceData(
+                  experienceData.filter((e) => e.id !== experience.id)
+                );
+              }}
+            >
+              Delete
+            </button>
+          </div>
+        </>
+      ))}
     </div>
   );
 }

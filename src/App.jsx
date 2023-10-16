@@ -15,19 +15,8 @@ function App() {
     phone: "",
     website: "",
   });
-  const [experienceData, setExperienceData] = useState({
-    title: "",
-    company: "",
-    location: "",
-    dates: "",
-    description: "",
-  });
-  const [educationData, setEducationData] = useState({
-    school: "",
-    location: "",
-    dates: "",
-    description: "",
-  });
+  const [experienceData, setExperienceData] = useState([]);
+  const [educationData, setEducationData] = useState([]);
 
   const [designData, setDesignData] = useState({
     headerBg: "",

@@ -1,6 +1,8 @@
 import { useState } from "react";
 import "../stylesheets/App.css";
 
+let nextId = 0;
+
 function EducationForm({ educationData, setEducationData }) {
   const [dropDown, setDropdown] = useState(false);
 
@@ -29,12 +31,16 @@ function EducationForm({ educationData, setEducationData }) {
     const educationMajor = document.querySelector(
       "#info-education-major"
     ).value;
-    setEducationData({
-      school: educationSchool,
-      location: educationLocation,
-      dates: educationDates,
-      major: educationMajor,
-    });
+    setEducationData([
+      ...educationData,
+      {
+        id: nextId++,
+        school: educationSchool,
+        location: educationLocation,
+        dates: educationDates,
+        major: educationMajor,
+      },
+    ]);
   }
 
   return (
@@ -65,6 +71,23 @@ function EducationForm({ educationData, setEducationData }) {
         <input id="info-education-major" type="text" placeholder="Major" />
       </form>
       <button onClick={handleSubmit}>Add Info</button>
+      {educationData.map((education) => (
+        <>
+          <div className="info-item-display" key={education.id}>
+            <p>{education.school}</p>
+            <button
+              className="info-item-display-delete"
+              onClick={() => {
+                setEducationData(
+                  educationData.filter((e) => e.id !== education.id)
+                );
+              }}
+            >
+              Delete
+            </button>
+          </div>
+        </>
+      ))}
     </div>
   );
 }

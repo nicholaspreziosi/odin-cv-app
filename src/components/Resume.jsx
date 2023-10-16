@@ -45,17 +45,21 @@ function Resume({ contactData, experienceData, educationData, designData }) {
           <h1>
             <i>Experience</i>
           </h1>
-          <div className="experience-info">
-            <h2>{experienceData.title || "Title"}</h2>
-            <p>{experienceData.company || "Company"}</p>
-          </div>
-          <div className="experience-info">
-            <p>{experienceData.location || "Location"}</p>
-            <p>{experienceData.dates || "Dates"}</p>
-          </div>
-          <p className="experience-description">
-            {experienceData.description || "Description"}
-          </p>
+          {experienceData.map((experience) => (
+            <div key={experience.id}>
+              <div className="experience-info">
+                <h2>{experience.title || "Title"}</h2>
+                <p>{experience.company || "Company"}</p>
+              </div>
+              <div className="experience-info">
+                <p>{experience.location || "Location"}</p>
+                <p>{experience.dates || "Dates"}</p>
+              </div>
+              <p className="experience-description">
+                {experience.description || "Description"}
+              </p>
+            </div>
+          ))}
         </div>
         <div
           className="resume-education"
@@ -67,14 +71,18 @@ function Resume({ contactData, experienceData, educationData, designData }) {
           <h1>
             <i>Education</i>
           </h1>
-          <div className="education-info">
-            <h2>{educationData.school || "School"}</h2>
-            <p>{educationData.major || "Major"}</p>
-          </div>
-          <div className="education-info">
-            <p>{educationData.location || "Location"}</p>
-            <p>{educationData.dates || "Dates"}</p>
-          </div>
+          {educationData.map((education) => (
+            <div key={education.id}>
+              <div className="education-info">
+                <h2>{education.school || "School"}</h2>
+                <p>{education.major || "Major"}</p>
+              </div>
+              <div className="education-info">
+                <p>{education.location || "Location"}</p>
+                <p>{education.dates || "Dates"}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </Fragment>

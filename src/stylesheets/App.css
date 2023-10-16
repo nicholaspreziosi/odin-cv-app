@@ -9,6 +9,13 @@ h2 {
   margin: 0;
 }
 
+.info-form input {
+  padding: 6px;
+  font-size: 1rem;
+
+  border-radius: 4px;
+}
+
 #info-container {
   display: flex;
   flex-direction: column;
@@ -154,4 +161,19 @@ input[type="checkbox"] {
 }
 
 .info-form {
+}
+
+.info-item-display {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px;
+  margin: 12px;
+  border: 1px solid gray;
+  border-radius: 8px;
+}
+
+.info-item-display-delete {
+  cursor: pointer;
 }

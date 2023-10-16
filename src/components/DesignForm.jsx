@@ -17,8 +17,6 @@ function DesignForm({ designData, setDesignData }) {
       : (designChevron.src = "../public/chevron-up.svg");
   }
 
-  function handleFontChange() {}
-
   return (
     <div className="form-section">
       <div onClick={toggleDropdown} className="form-header">
