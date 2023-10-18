@@ -8,11 +8,13 @@ function ExperienceForm({ experienceData, setExperienceData }) {
 
   function toggleDropdown() {
     setDropdown(!dropDown);
-    const experienceForm = document.querySelector("#experience-form");
+    const experienceFormContainer = document.querySelector(
+      "#experience-form-container"
+    );
     const experienceChevron = document.querySelector("#experience-chevron");
     dropDown === false
-      ? (experienceForm.style.display = "none")
-      : (experienceForm.style.display = "flex");
+      ? (experienceFormContainer.style.display = "none")
+      : (experienceFormContainer.style.display = "flex");
     dropDown === false
       ? (experienceChevron.src = "../public/chevron-down.svg")
       : (experienceChevron.src = "../public/chevron-up.svg");
@@ -58,45 +60,51 @@ function ExperienceForm({ experienceData, setExperienceData }) {
           alt=""
         />
       </div>
-      <form id="experience-form" className="info-form" action="">
-        <label htmlFor="info-experience-title">Title:</label>
-        <input id="info-experience-title" type="text" placeholder="Title" />
-        <label htmlFor="info-experience-company">Company:</label>
-        <input id="info-experience-company" type="text" placeholder="Company" />
-        <label htmlFor="info-experience-location">Location:</label>
-        <input
-          id="info-experience-location"
-          type="text"
-          placeholder="Location"
-        />
-        <label htmlFor="info-experience-dates">Dates:</label>
-        <input id="info-experience-dates" type="text" placeholder="Dates" />
-        <label htmlFor="info-experience-description">Description:</label>
-        <textarea
-          name=""
-          id="info-experience-description"
-          cols="30"
-          rows="10"
-        ></textarea>
-      </form>
-      <button onClick={handleSubmit}>Add Info</button>
-      {experienceData.map((experience) => (
-        <>
-          <div className="info-item-display" key={experience.id}>
-            <p>{experience.title}</p>
-            <button
-              className="info-item-display-delete"
-              onClick={() => {
-                setExperienceData(
-                  experienceData.filter((e) => e.id !== experience.id)
-                );
-              }}
-            >
-              Delete
-            </button>
-          </div>
-        </>
-      ))}
+      <div id="experience-form-container">
+        <form id="experience-form" className="info-form" action="">
+          <label htmlFor="info-experience-title">Title:</label>
+          <input id="info-experience-title" type="text" placeholder="Title" />
+          <label htmlFor="info-experience-company">Company:</label>
+          <input
+            id="info-experience-company"
+            type="text"
+            placeholder="Company"
+          />
+          <label htmlFor="info-experience-location">Location:</label>
+          <input
+            id="info-experience-location"
+            type="text"
+            placeholder="Location"
+          />
+          <label htmlFor="info-experience-dates">Dates:</label>
+          <input id="info-experience-dates" type="text" placeholder="Dates" />
+          <label htmlFor="info-experience-description">Description:</label>
+          <textarea
+            name=""
+            id="info-experience-description"
+            cols="30"
+            rows="10"
+          ></textarea>
+        </form>
+        <button onClick={handleSubmit}>+ Add Experience</button>
+        {experienceData.map((experience) => (
+          <>
+            <div className="info-item-display" key={experience.id}>
+              <p>{experience.title}</p>
+              <img
+                className="info-item-display-delete"
+                src="../public/remove.svg"
+                alt=""
+                onClick={() => {
+                  setExperienceData(
+                    experienceData.filter((e) => e.id !== experience.id)
+                  );
+                }}
+              ></img>
+            </div>
+          </>
+        ))}
+      </div>
     </div>
   );
 }

@@ -7,11 +7,13 @@ function ContactForm({ contactData, setContactData }) {
 
   function toggleDropdown() {
     setDropdown(!dropDown);
-    const contactForm = document.querySelector("#contact-form");
+    const contactFormContainer = document.querySelector(
+      "#contact-form-container"
+    );
     const contactChevron = document.querySelector("#contact-chevron");
     dropDown === false
-      ? (contactForm.style.display = "none")
-      : (contactForm.style.display = "flex");
+      ? (contactFormContainer.style.display = "none")
+      : (contactFormContainer.style.display = "flex");
     dropDown === false
       ? (contactChevron.src = "../public/chevron-down.svg")
       : (contactChevron.src = "../public/chevron-up.svg");
@@ -43,17 +45,23 @@ function ContactForm({ contactData, setContactData }) {
           alt=""
         />
       </div>
-      <form id="contact-form" className="info-form">
-        <label htmlFor="info-contact-name">Name:</label>
-        <input id="info-contact-name" type="text" placeholder="Name" />
-        <label htmlFor="info-contact-email">Email Address:</label>
-        <input id="info-contact-email" type="text" placeholder="Email" />
-        <label htmlFor="info-contact-phone">Phone Number:</label>
-        <input id="info-contact-phone" type="tel" placeholder="Phone Number" />
-        <label htmlFor="info-contact-website">Website:</label>
-        <input id="info-contact-website" type="text" placeholder="Website" />
-      </form>
-      <button onClick={handleSubmit}>Add Info</button>
+      <div id="contact-form-container">
+        <form id="contact-form" className="info-form">
+          <label htmlFor="info-contact-name">Name:</label>
+          <input id="info-contact-name" type="text" placeholder="Name" />
+          <label htmlFor="info-contact-email">Email Address:</label>
+          <input id="info-contact-email" type="text" placeholder="Email" />
+          <label htmlFor="info-contact-phone">Phone Number:</label>
+          <input
+            id="info-contact-phone"
+            type="tel"
+            placeholder="Phone Number"
+          />
+          <label htmlFor="info-contact-website">Website:</label>
+          <input id="info-contact-website" type="text" placeholder="Website" />
+        </form>
+        <button onClick={handleSubmit}>Add Info</button>
+      </div>
     </div>
   );
 }

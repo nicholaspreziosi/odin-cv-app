@@ -26,6 +26,16 @@ function App() {
     resumeFontFamily: "Helvetica",
   });
 
+  const [resumeVisible, setResumeVisible] = useState(true);
+
+  function toggleResumeDisplay() {
+    setResumeVisible(!resumeVisible);
+    const resume = document.querySelector("#resume");
+    resumeVisible
+      ? (resume.style.display = "flex")
+      : (resume.style.display = "none");
+  }
+
   return (
     <>
       <div id="main-container">
@@ -43,6 +53,9 @@ function App() {
             setEducationData={setEducationData}
           />
           <DesignForm designData={designData} setDesignData={setDesignData} />
+          <button id="resume-display-toggle" onClick={toggleResumeDisplay}>
+            Toggle Resume Display
+          </button>
         </div>
         <Resume
           contactData={contactData}

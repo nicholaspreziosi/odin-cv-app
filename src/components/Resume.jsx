@@ -20,18 +20,14 @@ function Resume({ contactData, experienceData, educationData, designData }) {
           }}
         >
           <div>
-            <img
-              style={{ display: "none" }}
-              id="prof-image"
-              src="../public/account-box-outline.jpg"
-              alt=""
-            />
-          </div>
-          <div>
-            <h1>{contactData.name || "Name"}</h1>
-            <h2>{contactData.email || "Email Address"}</h2>
-            <h2>{contactData.phone || "Phone Number"}</h2>
-            <h2>{contactData.website || "Website"}</h2>
+            <h1 className="contact-h1">{contactData.name || "Name"}</h1>
+            <h2 className="contact-h2">
+              {contactData.email || "Email Address"}
+            </h2>
+            <h2 className="contact-h2">
+              {contactData.phone || "Phone Number"}
+            </h2>
+            <h2 className="contact-h2">{contactData.website || "Website"}</h2>
           </div>
         </div>
         <div
@@ -42,18 +38,22 @@ function Resume({ contactData, experienceData, educationData, designData }) {
             borderBottom: `1px dashed ${designData.mainFont}`,
           }}
         >
-          <h1>
+          <h1 className="experience-h1">
             <i>Experience</i>
           </h1>
           {experienceData.map((experience) => (
             <div key={experience.id}>
               <div className="experience-info">
-                <h2>{experience.title || "Title"}</h2>
-                <p>{experience.company || "Company"}</p>
+                <h2 className="experience-h2">{experience.title || "Title"}</h2>
+                <p className="experience-p">
+                  {experience.company || "Company"}
+                </p>
               </div>
               <div className="experience-info">
-                <p>{experience.location || "Location"}</p>
-                <p>{experience.dates || "Dates"}</p>
+                <p className="experience-p">
+                  {experience.location || "Location"}
+                </p>
+                <p className="experience-p">{experience.dates || "Dates"}</p>
               </div>
               <p className="experience-description">
                 {experience.description || "Description"}
@@ -68,18 +68,20 @@ function Resume({ contactData, experienceData, educationData, designData }) {
             color: designData.mainFont,
           }}
         >
-          <h1>
+          <h1 className="education-h1">
             <i>Education</i>
           </h1>
           {educationData.map((education) => (
             <div key={education.id}>
               <div className="education-info">
-                <h2>{education.school || "School"}</h2>
-                <p>{education.major || "Major"}</p>
+                <h2 className="education-h2">{education.school || "School"}</h2>
+                <p className="experience-p">{education.major || "Major"}</p>
               </div>
               <div className="education-info">
-                <p>{education.location || "Location"}</p>
-                <p>{education.dates || "Dates"}</p>
+                <p className="experience-p">
+                  {education.location || "Location"}
+                </p>
+                <p className="experience-p">{education.dates || "Dates"}</p>
               </div>
             </div>
           ))}

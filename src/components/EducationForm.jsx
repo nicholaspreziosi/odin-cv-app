@@ -8,11 +8,13 @@ function EducationForm({ educationData, setEducationData }) {
 
   function toggleDropdown() {
     setDropdown(!dropDown);
-    const educationForm = document.querySelector("#education-form");
+    const educationFormContainer = document.querySelector(
+      "#education-form-container"
+    );
     const educationChevron = document.querySelector("#education-chevron");
     dropDown === false
-      ? (educationForm.style.display = "none")
-      : (educationForm.style.display = "flex");
+      ? (educationFormContainer.style.display = "none")
+      : (educationFormContainer.style.display = "flex");
     dropDown === false
       ? (educationChevron.src = "../public/chevron-down.svg")
       : (educationChevron.src = "../public/chevron-up.svg");
@@ -56,38 +58,40 @@ function EducationForm({ educationData, setEducationData }) {
           />
         </div>
       </div>
-      <form id="education-form" className="info-form" action="">
-        <label htmlFor="info-education-school">School:</label>
-        <input id="info-education-school" type="text" placeholder="School" />
-        <label htmlFor="info-education-location">Location:</label>
-        <input
-          id="info-education-location"
-          type="text"
-          placeholder="Location"
-        />
-        <label htmlFor="info-education-dates">Dates:</label>
-        <input id="info-education-dates" type="text" placeholder="Dates" />
-        <label htmlFor="info-education-major">Major:</label>
-        <input id="info-education-major" type="text" placeholder="Major" />
-      </form>
-      <button onClick={handleSubmit}>Add Info</button>
-      {educationData.map((education) => (
-        <>
-          <div className="info-item-display" key={education.id}>
-            <p>{education.school}</p>
-            <button
-              className="info-item-display-delete"
-              onClick={() => {
-                setEducationData(
-                  educationData.filter((e) => e.id !== education.id)
-                );
-              }}
-            >
-              Delete
-            </button>
-          </div>
-        </>
-      ))}
+      <div id="education-form-container">
+        <form id="education-form" className="info-form" action="">
+          <label htmlFor="info-education-school">School:</label>
+          <input id="info-education-school" type="text" placeholder="School" />
+          <label htmlFor="info-education-location">Location:</label>
+          <input
+            id="info-education-location"
+            type="text"
+            placeholder="Location"
+          />
+          <label htmlFor="info-education-dates">Dates:</label>
+          <input id="info-education-dates" type="text" placeholder="Dates" />
+          <label htmlFor="info-education-major">Major:</label>
+          <input id="info-education-major" type="text" placeholder="Major" />
+        </form>
+        <button onClick={handleSubmit}>+ Add Education</button>
+        {educationData.map((education) => (
+          <>
+            <div className="info-item-display" key={education.id}>
+              <p>{education.school}</p>
+              <img
+                className="info-item-display-delete"
+                src="../public/remove.svg"
+                alt=""
+                onClick={() => {
+                  setEducationData(
+                    educationData.filter((e) => e.id !== education.id)
+                  );
+                }}
+              ></img>
+            </div>
+          </>
+        ))}
+      </div>
     </div>
   );
 }

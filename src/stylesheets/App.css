@@ -45,13 +45,39 @@ h2 {
   filter: drop-shadow(0 0 1rem black);
 }
 
-.resume-contact > div > h1 {
-  font-size: 2.25rem;
+.resume-contact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 12px;
+  background-color: rgb(1, 1, 54);
+  color: white;
+  height: 18%;
 }
 
-.resume-experience > h1,
-.resume-education > h1 {
-  font-size: 1.5rem;
+.contact-h1 {
+  font-size: 4vh;
+}
+
+.experience-h1,
+.education-h1 {
+  font-size: 2.5vh;
+}
+
+.contact-h2,
+.experience-h2,
+.education-h2 {
+  font-size: 1.5vh;
+}
+
+.experience-p,
+.education-p {
+  font-size: 1.3vh;
+}
+
+.experience-description {
+  font-size: 1.4vh;
 }
 
 #resume-experience > div {
@@ -75,33 +101,11 @@ h2 {
   color: black;
 }
 
-.resume-contact > div > h2,
-.resume-experience > div > h2,
-.resume-education > div > h2 {
-  font-size: 1rem;
-}
-
-.resume-experience > p,
-.resume-education > p {
-  font-size: 0.8rem;
-}
-
 .info-form {
   padding: 24px;
   display: flex;
   flex-direction: column;
   gap: 12px;
-}
-
-.resume-contact {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  padding: 12px;
-  background-color: rgb(1, 1, 54);
-  color: white;
-  height: 18%;
 }
 
 .experience-info,
@@ -142,9 +146,9 @@ input[type="checkbox"] {
   width: 25px;
 }
 
-#contact-form,
-#experience-form,
-#education-form,
+#contact-form-container,
+#experience-form-container,
+#education-form-container,
 #design-form {
   display: none;
   flex-direction: column;
@@ -160,9 +164,6 @@ input[type="checkbox"] {
   border-bottom: 0.5px solid white;
 }
 
-.info-form {
-}
-
 .info-item-display {
   display: flex;
   flex-direction: row;
@@ -176,4 +177,56 @@ input[type="checkbox"] {
 
 .info-item-display-delete {
   cursor: pointer;
+  max-width: 40px;
+}
+
+@media (max-width: 1000px) {
+  #main-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    align-content: center;
+  }
+
+  #info-container {
+    height: auto;
+  }
+
+  #resume {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: calc(calc(11.5 / 8) * 100vw);
+  }
+
+  .contact-h1 {
+    font-size: 4vh;
+  }
+
+  .experience-h1,
+  .education-h1 {
+    font-size: 2.5vh;
+  }
+
+  .contact-h2,
+  .experience-h2,
+  .education-h2 {
+    font-size: 1.5vh;
+  }
+
+  .experience-p,
+  .education-p {
+    font-size: 1.3vh;
+  }
+
+  .experience-description {
+    font-size: 1.4vh;
+  }
+
+  #resume-display-toggle {
+    position: absolute;
+    bottom: 0;
+    z-index: 99;
+  }
 }
